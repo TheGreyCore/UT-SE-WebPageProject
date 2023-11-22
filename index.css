@@ -80,3 +80,7 @@ body {
     height: auto;
     margin-top: 10px;
   }
+
+  #introduction-photo {
+    border-radius: 100px;
+  }
