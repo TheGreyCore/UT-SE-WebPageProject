@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=Poppins:wght@200;300;400;600;700&display=swap');
 
 body {
     background: #1B1A17;
@@ -84,3 +85,26 @@ body {
   #introduction-photo {
     border-radius: 100px;
   }
+
+  .nav-links {
+    text-align: right;
+    flex: 1;
+  }
+
+  .nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 0px 33px 0;
+    position: relative;
+}
+
+.nav-links ul li a{
+    color: white;
+    text-decoration: none;
+    font-family: League Gothic;
+    font-size: 64px;
+}
+
+nav img {
+  width: 85px;
+}
