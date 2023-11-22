@@ -107,6 +107,8 @@ body {
 
 nav img {
   width: 85px;
+  height: 80px;
+  vertical-align: bottom;
 }
 
 .container {
