@@ -110,6 +110,81 @@
     </div>
   </div>
 
+    <div class="top-box">
+        <h2>Discover also other recipes! 😋</h2>
+    </div>
+
+    <div class="recipes" id="recipe-list"></div>
+
+    <script>
+        // Script is made by Dmitri Matetski using CHATGPT, google, and knowledge
+        document.addEventListener('DOMContentLoaded', () => {
+            const recipeList = document.getElementById('recipe-list');
+
+            // Määrake API valikud
+            const options = {
+                method: 'GET',
+                url: 'https://tasty.p.rapidapi.com/recipes/list',
+                params: {
+                    from: Math.floor(Math.random() * 501), // Random value from 0 to 500
+                    size: '12',
+                    tags: 'under_30_minutes'
+                },
+                headers: {
+                    // 'X-RapidAPI-Key': '47edec5a65mshb2001658287133dp148951jsn0044f52203f9', FIX THIS IN PRODUCT
+                    'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+                }
+            };
+
+            // Konstrueerige URL koos päringuparameetritega
+            const apiUrl = new URL(options.url);
+            apiUrl.search = new URLSearchParams(options.params).toString();
+
+            // Andmete toomine API-st
+            fetch(apiUrl, { headers: options.headers })
+                .then(response => response.json())
+                .then(data => {
+                    // Taasesita retseptid ja loo div elemendid etteantud malliga.
+                    data.results.forEach(recipe => {
+                        const recipeItem = document.createElement('div');
+                        recipeItem.classList.add('recipe-item');
+
+                        // Loo pildielement pisipildi jaoks.
+                        const thumbnail = document.createElement('img');
+                        thumbnail.classList.add('recipe-image');
+                        thumbnail.src = recipe.thumbnail_url;
+                        thumbnail.alt = recipe.name;
+
+                        // Loo div-element toiduteabe jaoks
+                        const foodInfo = document.createElement('div');
+                        foodInfo.classList.add('food-info');
+
+                        // Loo h2-element retsepti nimele
+                        const recipeName = document.createElement('h2');
+                        recipeName.textContent = recipe.name;
+
+                        // Loo p element kirjelduse jaoks
+                        const description = document.createElement('p');
+                        description.textContent = recipe.description;
+
+                        // Lisage pisipilt, nimi ja kirjeldus toidu infodivile.
+                        foodInfo.appendChild(recipeName);
+                        foodInfo.appendChild(description);
+
+                        // Lisage pisipilt ja toiduteave retsepti elemendi div'ile
+                        recipeItem.appendChild(thumbnail);
+                        recipeItem.appendChild(foodInfo);
+
+                        // Retsepti elemendi lisamine retseptide loendisse div
+                        recipeList.appendChild(recipeItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching recipes:', error);
+                });
+        });
+    </script>
+
     <footer>
       <div class="line">
         <hr style="border-color: #35332E; margin-top: -50px;">
