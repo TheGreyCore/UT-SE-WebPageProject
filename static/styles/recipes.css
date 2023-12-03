@@ -36,3 +36,46 @@
   text-align: center;
   background-color: #f8f8f8;
 }
+
+button {
+	background-color: #202325;
+	border-radius:14px;
+	border:3px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:16px;
+	padding:12px 24px;
+	text-shadow:0px 1px 0px #adadad;
+}
+
+button:hover {
+	background-color:#5cbf2a;
+}
+
+#popup-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #202325;
+  border: 3px solid #ccc;
+  box-shadow: 0 0 100px rgb(0 0 0);
+  z-index: 1000;
+  text-align: left;
+}
+
+#popup-container img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#close-btn {
+  cursor: pointer;
+  color: #007BFF;
+  font-weight: bold;
+  float: right;
+}
