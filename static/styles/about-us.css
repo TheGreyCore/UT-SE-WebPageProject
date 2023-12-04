@@ -90,12 +90,12 @@ vertical-align: bottom;
 .kirjeldus-dmitri {
   font-size: 25px;
   margin-top: -10px;
-  padding-top: -10px;
+  padding-bottom: 10px;
 }
 
 .dmitri {
   margin-top: -17px;
-  padding-top: -17px;
+  padding-bottom: 17px;
 }
 
 .romet {
